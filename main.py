@@ -10,12 +10,8 @@ import cv2
 Builder.load_file("myapplayout.kv")
 
 class AndroidCamera(Camera):
-    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
     camera_resolution = (640, 480)
-    face_resolution = (128, 96)
-    ratio = camera_resolution[0] / face_resolution[0]
-
-
+    
     def _camera_loaded(self, *largs):
         self.texture = Texture.create(size=np.flip(self.camera_resolution), colorfmt='rgb')
         self.texture_size = list(self.texture.size)
